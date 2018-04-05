@@ -23,4 +23,4 @@ app.use((req, res, next) => {
   res.status(400).send('Page cannot be found!');
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${ port }!`));
+app.listen(port, () => console.log(`This application listening on port ${ port }!`));
