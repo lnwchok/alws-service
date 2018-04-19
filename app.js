@@ -5,8 +5,11 @@ const Twig = require('twig');
 
 // const interpolate = require('./src/math/interpolate');
 
-
+const temperature = require('./src/core/temperature');
 let tempInput = '330f';
+
+let mtemp = new temperature(tempInput);
+console.log(mtemp);
 // function
 // function checkUnit(value) {
 //   let res = value.charAt(value.length-1).lowercase();
@@ -53,8 +56,8 @@ app.get('/', function (req, res) {
 
   // let n = interpolate.linear(0,10,0,100,5);
   res.render('index.twig', {
-    // message : tempObj(tempInput).unit;
-    message : 'Hello Work'
+    message : 'Temperature is ' + mtemp.value
+    // message : 'Hello Work'
   });
 });
 
