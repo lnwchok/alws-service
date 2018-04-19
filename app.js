@@ -3,6 +3,42 @@ const express = require('express');
 const app = express();
 const Twig = require('twig');
 
+// const interpolate = require('./src/math/interpolate');
+
+
+let tempInput = '330f';
+// function
+// function checkUnit(value) {
+//   let res = value.charAt(value.length-1).lowercase();
+//   if (RegExp('[a-z]').test(res)) {
+//     if (res=='c') {
+//       return 'C'
+//     } else {
+//       return 'F'
+//     }
+//   } else {
+//     return 'F'
+//   }
+// }
+
+// class tempObj() = {
+//   let temp = value;
+//   this.unit = checkUnit(value);
+//   // this.value =
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+
 const port = process.env.PORT || 3000;
 
 // This section is optional and used to configure twig.
@@ -14,8 +50,11 @@ app.set("twig options", {
 app.get('/', function (req, res) {
   //res.setHeader('Content-Type','text/html');
   //res.send('Hello World! Welcome :: ABCD');
+
+  // let n = interpolate.linear(0,10,0,100,5);
   res.render('index.twig', {
-    message : 'Hello my world'
+    // message : tempObj(tempInput).unit;
+    message : 'Hello Work'
   });
 });
 
