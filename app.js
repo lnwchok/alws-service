@@ -5,42 +5,14 @@ const Twig = require('twig');
 
 // const interpolate = require('./src/math/interpolate');
 
-const temperature = require('./src/core/temperature');
+const temperature = require('./src/core/Temperature');
+const stress = require('./src/core/AllowableStress');
+
 let tempInput = '330f';
+let matlInput = 'e0a';
 
-let mtemp = new temperature(tempInput);
-console.log(mtemp);
-// function
-// function checkUnit(value) {
-//   let res = value.charAt(value.length-1).lowercase();
-//   if (RegExp('[a-z]').test(res)) {
-//     if (res=='c') {
-//       return 'C'
-//     } else {
-//       return 'F'
-//     }
-//   } else {
-//     return 'F'
-//   }
-// }
-
-// class tempObj() = {
-//   let temp = value;
-//   this.unit = checkUnit(value);
-//   // this.value =
-// };
-
-
-
-
-
-
-
-
-
-
-
-
+// let caseTemperature = new temperature(tempInput);
+let AllowStress = stress.alws(matlInput, new temperature(tempInput));
 
 const port = process.env.PORT || 3000;
 
