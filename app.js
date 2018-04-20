@@ -8,10 +8,12 @@ const Twig = require('twig');
 const temperature = require('./src/core/Temperature');
 const stress = require('./src/core/AllowableStress');
 
-let tempInput = '330f';
+let tempInput = '60f';
 let matlInput = 'e0a';
 
-// let caseTemperature = new temperature(tempInput);
+let caseTemperature = new temperature(tempInput);
+console.log(caseTemperature);
+
 let AllowStress = stress.alws(matlInput, new temperature(tempInput));
 
 const port = process.env.PORT || 3000;
@@ -28,8 +30,8 @@ app.get('/', function (req, res) {
 
   // let n = interpolate.linear(0,10,0,100,5);
   res.render('index.twig', {
-    message : 'Temperature is ' + mtemp.value
-    // message : 'Hello Work'
+    // message : 'Temperature is ' + mtemp.value
+    message : 'Hello Work'
   });
 });
 

@@ -1,6 +1,26 @@
+const math = require('./../math/math');
+
+function findUpperBound(value) {
+  if (typeof value === 'undefined') { return undefined; }
+  if (value < 100) { return 100; }
+  else {
+    return (value > 600) ? math.myceil(value, 50) : math.myceil(value, 100);
+  }
+};
+
+function findLowerBound(value) {
+  if (typeof value === 'undefined') { return undefined; }
+  if (value < 100) { return 100; }
+  else {
+    return (value > 600) ? math.myfloor(value, 50) : math.myfloor(value, 100);
+  }
+};
+
+//////////////////////////////
+//       Main Function      //
+//////////////////////////////
 function temperature(input) {
   let _input = input;
-  // this.input = _input.toUpperCase();
 
 // Find the unit of temperature
   this.unit = 'F';
@@ -14,10 +34,8 @@ function temperature(input) {
 
 // Find the value of temperature
   this.value = (typeof _input !== 'undefined') ? _input : undefined;
-// Find the ceiling 100 of temperature
-  this.upperbound = (typeof this.value !== 'undefined') ? Number(Math.ceil(this.value/100) * 100) : undefined;
-// Find the floor 100 of temperature
-  this.lowerbound = (typeof this.value !== 'undefined') ? Number(Math.floor(this.value/100) * 100) : undefined;
-}
+  this.upperbound = findUpperBound(this.value);
+  this.lowerbound = findLowerBound(this.value);
+};
 
 module.exports = temperature;
